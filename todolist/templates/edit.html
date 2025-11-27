@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Edit Task {% endblock title %}
+
+
+{% block content %} 
+<div class="container">
+
+  {% if task.owner == user %}
+  
+  
+  
+  <form method="POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" id="taskName" name="task" value="{{task.task}}", placeholder="{{task.task}}">
+    <input type="hidden" class="form-control"  name="completed" value="{{task.completed}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Update Task</button>
+</form>
+{% else %}
+<h2 class="my-4 text-danger">You are not authorized to edit this task.</h2>
+{% endif %}
+</div>
+{% endblock content %}

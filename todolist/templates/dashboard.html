@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <h2 class="mb-4">Welcome to Your Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+                <h5>Total Tasks</h5>
+                <h3>{{ total_tasks }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+                <h5>Completed Tasks</h5>
+                <h3>{{ completed_tasks }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+                <h5>Pending Tasks</h5>
+                <h3>{{ pending_tasks }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+                <h5>Overdue Tasks</h5>
+                <h3>{{ overdue_tasks }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <h4>Today's Tasks</h4>
+    <div class="card p-3 shadow-sm">
+        {% if todays_tasks %}
+            {% for task in todays_tasks %}
+                <div class="task-item border-bottom py-2">
+                    <strong>{{ task.title }}</strong> - Due Today
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No tasks for today.</p>
+        {% endif %}
+    </div>
+
+    <hr class="my-4">
+
+    <h4>Upcoming Tasks</h4>
+    <div class="card p-3 shadow-sm">
+        {% if upcoming_tasks %}
+            {% for task in upcoming_tasks %}
+                <div class="task-item border-bottom py-2">
+                    <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No upcoming tasks.</p>
+        {% endif %}
+    </div>
+
+    <hr class="my-4">
+
+    <h4>Recent Activity</h4>
+    <div class="card p-3 shadow-sm">
+        {% for task in recent_activity %}
+            <div class="task-item border-bottom py-2">
+                <strong>{{ task.title }}</strong> — Updated: {{ task.updated_at }}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

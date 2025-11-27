@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}Task Manager - Stay Organized, Stay Ahead{% endblock title %}
+
+{% block content %}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    color: #222;
+  }
+  header {
+    background-color: #2b6cb0;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  section {
+    margin-bottom: 30px;
+  }
+  h2 {
+    color: #2b6cb0;
+    border-bottom: 2px solid #2b6cb0;
+    padding-bottom: 5px;
+  }
+  p {
+    line-height: 1.6;
+  }
+  ul {
+    line-height: 1.8;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #2b6cb0;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .btn:hover {
+    background-color: #1a4c84;
+  }
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f1f1f1;
+    color: #555;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+</style>
+
+<header>
+  <h1>Task Manager</h1>
+  <p>Stay Organized. Stay Focused. Get Things Done.</p>
+</header>
+
+<main>
+  <section>
+    <h2>Welcome to Task Manager</h2>
+    <p>
+      Life gets busy, but your tasks don’t have to be messy. Task Manager helps you manage your day with clarity — plan, prioritize, and track progress effortlessly. 
+      Whether it’s daily goals or long projects, everything stays sorted here.
+    </p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Get Started</a>
+
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <ul>
+      <li>✅ Quick Task Creation — Add and edit tasks instantly.</li>
+      <li>📅 Smart Scheduling — Set reminders and due dates easily.</li>
+      <li>🧩 Categories & Tags — Organize work, study, and personal goals.</li>
+      <li>📊 Progress Tracking — Watch your productivity grow every week.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Benefits & Impact</h2>
+    <p>
+      ✨ Boost your focus and cut the clutter.  
+      ✨ Achieve more in less time with smart planning.  
+      ✨ See your productivity improve, one task at a time.
+    </p>
+  </section>
+
+  <section>
+    <h2>Potential Challenges & Mitigation Strategies</h2>
+    <ul>
+      <li><b>Challenge:</b> Forgetting to update tasks.<br>
+          <b>Mitigation:</b> Enable daily reminders and notifications.</li>
+      <li><b>Challenge:</b> Too many pending items.<br>
+          <b>Mitigation:</b> Use the “Priority” tag to focus on what truly matters.</li>
+      <li><b>Challenge:</b> Losing track of deadlines.<br>
+          <b>Mitigation:</b> View tasks on the built-in calendar dashboard.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © 2025 Task Manager | Built to make your workflow smarter.
+</footer>
+{% endblock content %}
